@@ -1,0 +1,57 @@
+## Setup Environment
+```bash
+npm install -g yarn
+```
+
+Run it to install yarn
+
+```bash
+yarn install
+```
+Run it to install depedencies
+
+## Configuring Environment Variables
+
+Create a `.env` file at the root of your project and add the following environment variables:
+
+```ini
+# Application port configuration
+PORT=5001
+
+# Token expiration time (in seconds)
+TOKEN_EXPIRES_IN=600  # 10 minutes
+
+# Refresh token expiration time
+REFRESH_TOKEN_EXPIRES_IN=1d  # 1 day
+
+AUTH_SECRET_KEY=<Scret key>  # Replace <secret key> with your secret key
+
+# Database connection configuration (PostgreSQL)
+DB_TYPE=postgres
+DB_HOST=<hostname>  # Replace <hostname> with your database host (e.g., localhost)
+DB_PORT=<port>      # Replace <port> with your database port (default PostgreSQL is 5432)
+DB_USERNAME=<username>  # Replace <username> with your database username
+DB_PASSWORD=<password>  # Replace <password> with your database password
+DB_DATABASE=<db-name>   # Replace <db-name> with your database name
+```
+## Run the following command to start the project.
+```bash
+yarn dev
+```
+## How to use migration?
+* Create a new migration
+```bash
+yarn migration:create src/db/migrations/<name>   # Replace <name> with a different name
+```
+* Generate a migration when your model has changed
+```bash
+yarn migration:generate src/db/migrations/<name>   # Replace <name> with a different name
+```
+* Show migrations
+```bash
+yarn migration:show
+```
+* Run migrations
+```bash
+yarn migration:run
+```
